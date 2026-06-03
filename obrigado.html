@@ -71,8 +71,44 @@ fbq('track', 'CompleteRegistration', { content_name: 'Lead Coleira' });
   }
   .offer h2 span { color: var(--laranja); }
   .offer .lead { font-size: 18px; color: var(--cinza-claro); max-width: 560px; margin: 0 auto; }
-  .mockup { margin: 8px auto 28px; text-align: center; }
-  .mockup img { width: 100%; max-width: 620px; height: auto; display: block; margin: 0 auto; }
+  .mockup { margin: 10px auto 30px; }
+  .stage { position: relative; width: 100%; max-width: 600px; height: 380px; margin: 0 auto; perspective: 1500px; }
+  /* MONITOR / LIVE */
+  .mon { position: absolute; left: 0; top: 14px; width: 70%; transform: rotateY(15deg) rotateX(3deg); transform-style: preserve-3d; filter: drop-shadow(24px 32px 42px rgba(0,0,0,0.6)); }
+  .mon-screen { position: relative; width: 100%; padding-top: 56.25%; background: #0c0c0e; border: 1px solid #2a2a2e; border-radius: 10px; box-shadow: inset 0 0 0 6px #000; }
+  .thumb { position: absolute; inset: 7px; border-radius: 4px; overflow: hidden; background:#0a0a0a; }
+  .thumb-photo { position: absolute; inset: 0; background: url('assets/sergio-escritorio-full.png') no-repeat; background-size: cover; background-position: 32% 15%; }
+  .thumb-grad { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,10,10,0.82) 0%, rgba(10,10,10,0.1) 56%, transparent 100%), linear-gradient(0deg, rgba(10,10,10,0.9) 0%, transparent 40%); }
+  .thumb .live { position: absolute; top: 8px; left: 8px; z-index:3; background:#ff1f1f; color:#fff; font-size: 9px; font-weight: 800; letter-spacing: .5px; padding: 3px 7px; border-radius: 4px; }
+  .thumb-logo { position: absolute; top: 7px; right: 9px; z-index:3; height: 15px; width:auto; }
+  .thumb .play { position: absolute; left: 50%; top: 45%; transform: translate(-50%,-50%); z-index:3; width: 54px; height: 38px; background:#ff0000; border-radius: 9px; display:flex; align-items:center; justify-content:center; box-shadow: 0 6px 18px rgba(255,0,0,.5); }
+  .thumb .play::after { content:''; border-style: solid; border-width: 9px 0 9px 15px; border-color: transparent transparent transparent #fff; margin-left:3px; }
+  .thumb-title { position: absolute; left: 12px; bottom: 24px; z-index:3; max-width: 74%; color:#fff; font-weight: 800; font-size: clamp(11px, 2vw, 16px); line-height: 1.15; text-shadow: 0 2px 8px rgba(0,0,0,.85); }
+  .thumb-title small { display:block; color: var(--laranja); font-size: 9px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; margin-bottom:4px; }
+  .ytbar { position:absolute; left:0; right:0; bottom:0; height: 18px; z-index:3; background: linear-gradient(0deg, rgba(0,0,0,.92), transparent); }
+  .ytbar .track { position:absolute; left:0; right:0; bottom:13px; height:2px; background:rgba(255,255,255,.28); }
+  .ytbar .fill { position:absolute; left:0; bottom:13px; height:2px; width:38%; background:#ff0000; }
+  .ytbar .yt { position:absolute; right:8px; bottom:2px; display:flex; align-items:center; gap:3px; color:#fff; font-size:10px; font-weight:800; }
+  .ytbar .yt i { width:18px; height:13px; background:#ff0000; border-radius:3px; position:relative; }
+  .ytbar .yt i::after { content:''; position:absolute; left:50%; top:50%; transform:translate(-45%,-50%); border-style:solid; border-width:4px 0 4px 6px; border-color:transparent transparent transparent #fff; }
+  .mon-neck { position:absolute; left:50%; bottom:-30px; transform:translateX(-50%); width:13%; height:32px; background: linear-gradient(#26262a,#161618); }
+  .mon-foot { position:absolute; left:50%; bottom:-36px; transform:translateX(-50%); width:46%; height:10px; background: linear-gradient(#2a2a2e,#141416); border-radius:50%; }
+  /* CELULAR / RELATÓRIO COM SCROLL */
+  .phone { position: absolute; right: 6px; bottom: 0; width: 29%; z-index: 5; transform: rotateY(-12deg) rotateX(2deg); border-radius: 22px; background: #0a0a0c; padding: 7px; box-shadow: -22px 26px 44px rgba(0,0,0,.6), inset 0 0 0 1px #2a2a2e; }
+  .phone-scr { position: relative; width: 100%; padding-top: 200%; border-radius: 15px; overflow: hidden; background:#fff; }
+  .report-strip { position: absolute; top:0; left:0; width:100%; animation: readScroll 18s ease-in-out infinite; }
+  .report-strip img { width:100%; display:block; }
+  .phone .notch { position:absolute; top:11px; left:50%; transform:translateX(-50%); width:34%; height:8px; background:#0a0a0c; border-radius:6px; z-index:4; }
+  .phone-glare { position:absolute; inset:0; z-index:3; background: linear-gradient(115deg, transparent 58%, rgba(255,255,255,0.12) 72%, transparent 82%); pointer-events:none; }
+  @keyframes readScroll {
+    0%,6%    { transform: translateY(0); }
+    25%,31%  { transform: translateY(-17%); }
+    50%,56%  { transform: translateY(-34%); }
+    74%,82%  { transform: translateY(-50%); }
+    95%,100% { transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) { .report-strip { animation: none; } }
+  @media (max-width: 520px) { .stage { height: 300px; } .thumb-title { bottom: 20px; } }
 
   .offer-card {
     background: var(--preto-3); border: 1px solid var(--preto-4);
@@ -143,7 +179,30 @@ fbq('track', 'CompleteRegistration', { content_name: 'Lead Coleira' });
     </div>
 
     <div class="mockup">
-      <img src="assets/mockup-relatorio-live-3d.png" alt="Relatório Gamma do dia em PDF e a live diária no YouTube" loading="lazy">
+      <div class="stage" role="img" aria-label="Live diária do relatório Gamma e o relatório do dia no celular">
+        <div class="mon">
+          <div class="mon-screen">
+            <div class="thumb">
+              <div class="thumb-photo"></div>
+              <div class="thumb-grad"></div>
+              <span class="live">● AO VIVO</span>
+              <img class="thumb-logo" src="assets/logo-gamma-escuro.png" alt="">
+              <div class="play"></div>
+              <div class="thumb-title"><small>Live diária · Gamma Quant</small>Leitura do Relatório, ao vivo</div>
+              <div class="ytbar"><span class="track"></span><span class="fill"></span><span class="yt"><i></i>YouTube</span></div>
+            </div>
+          </div>
+          <div class="mon-neck"></div>
+          <div class="mon-foot"></div>
+        </div>
+        <div class="phone">
+          <div class="phone-scr">
+            <div class="report-strip"><img src="assets/relatorio-strip.png" alt="Relatório Gamma do dia"></div>
+            <div class="phone-glare"></div>
+          </div>
+          <div class="notch"></div>
+        </div>
+      </div>
     </div>
 
     <div class="offer-card">
