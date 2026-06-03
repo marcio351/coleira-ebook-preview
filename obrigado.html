@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seu e-book está pronto · A Coleira Invisível</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- ===== META PIXEL =====
+     Mesmo {{META_PIXEL_ID}} da LP. CompleteRegistration dispara ao chegar nesta página
+     (cadastro concluído). Contact dispara no clique do botão do grupo de WhatsApp. -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '{{META_PIXEL_ID}}');
+fbq('track', 'PageView');
+fbq('track', 'CompleteRegistration', { content_name: 'Lead Coleira' });
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={{META_PIXEL_ID}}&ev=PageView&noscript=1"/></noscript>
+<!-- ===== /META PIXEL ===== -->
+
+<style>
+  :root {
+    --laranja: #f58a00; --laranja-escuro: #c47000;
+    --preto: #0a0a0a; --preto-2: #141414; --preto-3: #1f1f1f; --preto-4: #2a2a2a;
+    --branco: #ffffff; --cinza: #8a8a8a; --cinza-claro: #c7c7c7;
+    --whats: #25D366; --whats-escuro: #1da851;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif; background: var(--preto); color: var(--branco);
+    line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  .navbar { border-bottom: 1px solid var(--preto-3); padding: 18px 0; text-align: center; }
+  .navbar img { height: 34px; }
+
+  /* ===== TOPO: ENTREGA DO E-BOOK (compacto) ===== */
+  .delivered { padding: 48px 0 36px; text-align: center; border-bottom: 1px solid var(--preto-3); }
+  .check {
+    width: 60px; height: 60px; border-radius: 50%; background: rgba(245,138,0,0.12);
+    color: var(--laranja); display: flex; align-items: center; justify-content: center;
+    font-size: 32px; margin: 0 auto 18px;
+  }
+  .delivered h1 { font-size: clamp(24px, 3.4vw, 32px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.12; }
+  .delivered h1 span { color: var(--laranja); }
+  .delivered .sub { color: var(--cinza-claro); font-size: 16px; margin-top: 12px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .email-hint {
+    display: inline-block; margin-top: 22px; background: var(--preto-3); border: 1px solid var(--preto-4);
+    border-radius: 8px; padding: 13px 20px; font-size: 14px; color: var(--branco);
+  }
+  .email-hint b { color: var(--laranja); }
+
+  /* ===== OFERTA DO RELATÓRIO (destaque) ===== */
+  .offer { padding: 56px 0 64px; }
+  .offer-tag {
+    display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--laranja); border: 1px solid var(--laranja);
+    padding: 7px 15px; border-radius: 50px; margin-bottom: 22px;
+  }
+  .offer-head { text-align: center; margin-bottom: 36px; }
+  .offer h2 {
+    font-size: clamp(28px, 4.4vw, 44px); font-weight: 900; line-height: 1.08;
+    letter-spacing: -0.025em; margin-bottom: 16px;
+  }
+  .offer h2 span { color: var(--laranja); }
+  .offer .lead { font-size: 18px; color: var(--cinza-claro); max-width: 560px; margin: 0 auto; }
+  .mockup { margin: 8px auto 28px; text-align: center; }
+  .mockup img { width: 100%; max-width: 620px; height: auto; display: block; margin: 0 auto; }
+
+  .offer-card {
+    background: var(--preto-3); border: 1px solid var(--preto-4);
+    border-radius: 16px; padding: 36px 32px; margin-top: 8px;
+  }
+  .offer-card .free-pill {
+    display: inline-block; background: rgba(37,211,102,0.14); color: var(--whats);
+    font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 50px; margin-bottom: 22px;
+  }
+  .feat { display: flex; gap: 16px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--preto-4); }
+  .feat:last-of-type { border-bottom: none; }
+  .feat .fico {
+    flex-shrink: 0; width: 44px; height: 44px; border-radius: 10px;
+    background: rgba(245,138,0,0.12); color: var(--laranja);
+    display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900;
+  }
+  .feat h3 { font-size: 17px; font-weight: 800; margin-bottom: 3px; }
+  .feat p { font-size: 15px; color: var(--cinza-claro); }
+
+  .promise {
+    margin: 26px 0 8px; padding: 20px 22px; background: var(--preto-2);
+    border-left: 4px solid var(--laranja); border-radius: 8px;
+    font-size: 17px; line-height: 1.5; color: var(--branco); font-weight: 600;
+  }
+  .promise span { color: var(--laranja); }
+
+  .btn-whats {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; margin-top: 26px; padding: 19px 24px;
+    background: var(--whats); color: #ffffff; font-size: 16px; font-weight: 800;
+    letter-spacing: 0.3px; border-radius: 10px; text-decoration: none;
+    box-shadow: 0 6px 18px rgba(37,211,102,0.35); transition: all 0.2s;
+  }
+  .btn-whats:hover { background: var(--whats-escuro); transform: translateY(-2px); }
+  .btn-whats svg { width: 22px; height: 22px; flex-shrink: 0; }
+  .offer-sub { display: block; text-align: center; margin-top: 14px; font-size: 14px; color: var(--cinza); }
+
+  footer { padding: 32px 0 40px; text-align: center; font-size: 12px; color: var(--cinza); line-height: 1.6; border-top: 1px solid var(--preto-3); }
+  footer .disclaimer { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  @media (max-width: 520px) {
+    .offer-card { padding: 28px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="navbar"><img src="assets/logo-gamma-escuro.png" alt="Gamma Quant"></nav>
+
+<!-- ===== ENTREGA DO E-BOOK ===== -->
+<section class="delivered">
+  <div class="container">
+    <div class="check">✓</div>
+    <h1>Pronto<span id="nomeUser"></span>, seu e-book <span>foi para o seu email</span></h1>
+    <p class="sub">Enviamos A Coleira Invisível agora para o email que você cadastrou. Confere a caixa de entrada nos próximos minutos (vale dar uma olhada na aba de promoções ou no spam, por garantia).</p>
+    <div class="email-hint">📩 Procure por um email da <b>Gamma Quant</b> com o seu e-book para baixar.</div>
+  </div>
+</section>
+
+<!-- ===== OFERTA GRATUITA: RELATÓRIO DIÁRIO + LIVE ===== -->
+<section class="offer">
+  <div class="container">
+    <div class="offer-head">
+      <span class="offer-tag">Enquanto seu e-book não chega</span>
+      <h2>Receba a leitura de mercado do Sérgio. <span>Todo dia. De graça.</span></h2>
+      <p class="lead">O e-book vai te mostrar o conceito. O relatório diário te mostra ele acontecendo na prática, todo dia útil, antes do pregão abrir.</p>
+    </div>
+
+    <div class="mockup">
+      <img src="assets/mockup-relatorio-live-3d.png" alt="Relatório Gamma do dia em PDF e a live diária no YouTube" loading="lazy">
+    </div>
+
+    <div class="offer-card">
+      <span class="free-pill">100% gratuito · no grupo de WhatsApp</span>
+
+      <div class="feat">
+        <div class="fico">▣</div>
+        <div>
+          <h3>O Relatório Gamma do dia, em PDF</h3>
+          <p>A leitura do cenário antes do mercado abrir: o que está sob tensão, o que observar e o que é só ruído. Sem achismo, sem palpite.</p>
+        </div>
+      </div>
+
+      <div class="feat">
+        <div class="fico">▶</div>
+        <div>
+          <h3>A live diária com o Sérgio</h3>
+          <p>Todo dia o Sérgio lê o relatório ao vivo, ao seu lado, explicando o que olhar no gráfico e por quê. Você acompanha o raciocínio de quem está no mercado há quase 40 anos.</p>
+        </div>
+      </div>
+
+      <div class="feat">
+        <div class="fico">✓</div>
+        <div>
+          <h3>Tudo dentro do grupo, sem custo</h3>
+          <p>Você entra no grupo de WhatsApp, recebe o relatório e o aviso da live todo dia. Lê, acompanha e decide o que fazer com a informação.</p>
+        </div>
+      </div>
+
+      <div class="promise">
+        Enquanto a maioria abre o gráfico <span>no escuro</span>, você passa a abrir o dia com a leitura de mercado de quem opera há quase quatro décadas. Todo dia útil. Antes de todo mundo.
+      </div>
+
+      <a class="btn-whats" href="https://chat.whatsapp.com/LGFwNtwV8PWK7M6YJMMz8p" target="_blank" rel="noopener" onclick="if(typeof fbq==='function'){fbq('track','Contact',{content_name:'Entrar grupo relatorio'});}">
+        <svg viewBox="0 0 32 32" fill="#ffffff" xmlns="http://www.w3.org/2000/svg"><path d="M16.003 3C9.38 3 4 8.38 4 15.003c0 2.117.553 4.18 1.602 6.003L4 29l8.18-1.57a11.94 11.94 0 0 0 3.823.628h.001C22.626 28.058 28 22.68 28 16.057 28 9.434 22.626 3 16.003 3zm0 21.86h-.001a9.86 9.86 0 0 1-3.43-.61l-.246-.094-4.854.932.94-4.73-.16-.252a9.83 9.83 0 0 1-1.51-5.246c0-5.46 4.44-9.9 9.9-9.9 2.645 0 5.13 1.03 7 2.9a9.84 9.84 0 0 1 2.9 7c0 5.46-4.44 9.9-9.9 9.9zm5.43-7.41c-.297-.15-1.76-.868-2.032-.967-.272-.1-.47-.15-.668.15-.198.297-.767.967-.94 1.165-.173.198-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.76-1.653-2.057-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.15-.174.198-.298.297-.496.1-.198.05-.372-.025-.52-.075-.15-.668-1.61-.916-2.205-.24-.578-.484-.5-.668-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.477 0 1.46 1.065 2.872 1.213 3.07.149.198 2.095 3.2 5.076 4.487.71.306 1.263.49 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.76-.72 2.008-1.414.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/></svg>
+        Entrar no grupo e receber o relatório de hoje
+      </a>
+      <span class="offer-sub">É gratuito e o relatório de hoje já está lá dentro.</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="disclaimer">
+    Conteúdo com fins exclusivamente educacionais. O relatório e a live não constituem recomendação de compra ou venda de ativos. Sérgio Ferro não é analista de valores mobiliários credenciado pela CVM e não fornece recomendação de investimento, consultoria ou gestão de carteira. Resultados passados não garantem resultados futuros. Renda variável envolve risco de perda parcial ou total do capital.
+  </div>
+</footer>
+
+<script>
+  var nome = new URLSearchParams(window.location.search).get('nome');
+  if (nome) { document.getElementById('nomeUser').textContent = ', ' + nome.split(' ')[0]; }
+</script>
+
+</body>
+</html>
