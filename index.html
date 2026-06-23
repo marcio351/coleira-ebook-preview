@@ -82,7 +82,7 @@ fbq('track', 'PageView');
   /* ===== HERO ===== */
   header {
     background: var(--preto);
-    padding: 56px 0 72px;
+    padding: 48px 0 64px;
     position: relative;
     overflow: hidden;
   }
@@ -96,11 +96,53 @@ fbq('track', 'PageView');
   }
   .hero-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 56px;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
     align-items: center;
     position: relative;
     z-index: 1;
+  }
+  .hero-mockup-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-mockup-wrap img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    filter: drop-shadow(0 32px 64px rgba(245,138,0,0.18)) drop-shadow(0 8px 24px rgba(0,0,0,0.6));
+    border-radius: 8px;
+  }
+
+  /* ===== FORM SECTION (segunda dobra) ===== */
+  .form-section {
+    background: var(--preto-2);
+    padding: 72px 0 80px;
+    border-top: 1px solid var(--preto-3);
+  }
+  .form-section .kicker {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--laranja);
+    margin-bottom: 14px;
+  }
+  .form-section h2.form-title {
+    text-align: center;
+    font-size: clamp(26px, 3.5vw, 38px);
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 36px;
+    color: var(--branco);
+  }
+  .container-form {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 24px;
   }
   .eyebrow {
     display: inline-block;
@@ -153,41 +195,20 @@ fbq('track', 'PageView');
     transition: background .2s, transform .15s;
   }
   .hero-cta:hover { background: var(--laranja-claro); transform: translateY(-1px); }
-  @media (max-width: 900px) { .hero-cta { display: none; } }
 
   /* ===== FORM BOX ===== */
   .form-box {
-    background: var(--branco);
-    color: var(--preto);
-    border-radius: 10px;
-    padding: 32px 30px;
-    box-shadow: 0 28px 56px rgba(0,0,0,0.5), 0 0 0 1px rgba(245,138,0,0.18);
-    border-top: 6px solid var(--laranja);
-  }
-  .form-box .badge {
-    display: inline-block;
-    background: var(--laranja);
-    color: var(--preto);
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 6px 12px;
-    border-radius: 50px;
-    margin-bottom: 14px;
-  }
-  .form-box h3 {
-    font-size: 24px;
-    color: var(--preto);
-    margin-bottom: 6px;
-    line-height: 1.2;
-    font-weight: 800;
-    letter-spacing: -0.02em;
+    background: var(--preto-3);
+    color: var(--branco);
+    border-radius: 12px;
+    padding: 36px 32px;
+    box-shadow: 0 28px 56px rgba(0,0,0,0.4);
+    border-top: 5px solid var(--laranja);
   }
   .form-box .small {
-    font-size: 14px;
-    color: var(--cinza);
-    margin-bottom: 18px;
+    font-size: 15px;
+    color: var(--cinza-claro);
+    margin-bottom: 20px;
   }
   .field-hint {
     font-size: 11px;
@@ -201,25 +222,26 @@ fbq('track', 'PageView');
     font-weight: 700;
     letter-spacing: 1.2px;
     text-transform: uppercase;
-    color: var(--preto);
+    color: var(--cinza-claro);
     margin-bottom: 6px;
-    margin-top: 14px;
+    margin-top: 16px;
   }
   form input {
     width: 100%;
     padding: 13px 15px;
     font-size: 16px;
     font-family: 'Inter', sans-serif;
-    border: 2px solid #e5e5e5;
+    border: 2px solid var(--preto-4);
     border-radius: 6px;
-    background: var(--off);
+    background: var(--preto-2);
     transition: all 0.2s;
-    color: var(--preto);
+    color: var(--branco);
   }
+  form input::placeholder { color: var(--cinza); }
   form input:focus {
     outline: none;
     border-color: var(--laranja);
-    background: var(--branco);
+    background: var(--preto);
     box-shadow: 0 0 0 3px rgba(245,138,0,0.15);
   }
   button[type="submit"] {
@@ -407,7 +429,7 @@ fbq('track', 'PageView');
   @media (max-width: 900px) {
     .hero-grid, .journey-grid, .mentor-grid { grid-template-columns: 1fr; gap: 36px; }
     .hero-grid { text-align: left; }
-    .form-box { order: -1; }
+    .hero-mockup-wrap img { max-width: 300px; }
     .cards, .depo-grid { grid-template-columns: 1fr; }
     .stats .container { grid-template-columns: 1fr; gap: 28px; }
     .stat-item:not(:last-child)::after { display: none; }
@@ -434,10 +456,18 @@ fbq('track', 'PageView');
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
+<!-- ===== HERO (1ª dobra: imagem + copy) ===== -->
 <header>
   <div class="container">
     <div class="hero-grid">
+
+      <div class="hero-mockup-wrap">
+        <picture>
+          <source srcset="assets/coleira-mockup@2x.webp 2x, assets/coleira-mockup@1x.webp 1x" type="image/webp">
+          <source srcset="assets/coleira-mockup@2x.jpg 2x, assets/coleira-mockup@1x.jpg 1x" type="image/jpeg">
+          <img src="assets/coleira-mockup@1x.jpg" alt="E-book A Coleira Invisível · Sérgio Ferro · Gamma Quant" loading="eager">
+        </picture>
+      </div>
 
       <div class="hero-text">
         <div class="eyebrow">E-book gratuito · Sérgio Ferro</div>
@@ -451,46 +481,52 @@ fbq('track', 'PageView');
         <a href="#form" class="hero-cta">Quero o e-book grátis →</a>
       </div>
 
-      <div id="form" class="form-box">
-        <div class="badge">100% Gratuito</div>
-        <h3>Receba o e-book agora</h3>
-        <p class="small">Preencha abaixo. O PDF chega no seu email em segundos.</p>
-
-        <!--
-          INTEGRAÇÃO DO FORMULÁRIO
-          Troque {{FORM_ENDPOINT}} pela URL de POST do seu CRM (FullStacky, GoHighLevel,
-          Brevo, RD Station, etc). Enquanto estiver com {{}}, o form simula sucesso no preview.
-        -->
-        <form id="formCaptura" method="POST" action="{{FORM_ENDPOINT}}" novalidate>
-          <label for="nome">Nome</label>
-          <input type="text" id="nome" name="nome" required autocomplete="given-name" placeholder="Como prefere ser chamado">
-
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required autocomplete="email" placeholder="seu@email.com">
-
-          <label for="whatsapp">WhatsApp</label>
-          <input type="tel" id="whatsapp" name="whatsapp" required autocomplete="tel" placeholder="(11) 99999-9999" inputmode="numeric">
-          <p class="field-hint">Enviamos o PDF por aqui também. Zero spam — só análises gratuitas.</p>
-
-          <input type="hidden" name="origem" value="lp-coleira-toro">
-          <input type="hidden" name="utm_source" value="">
-          <input type="hidden" name="utm_medium" value="">
-          <input type="hidden" name="utm_campaign" value="">
-          <input type="hidden" name="utm_content" value="">
-          <input type="hidden" name="utm_term" value="">
-
-          <button type="submit" id="btnEnviar">Quero o e-book grátis</button>
-
-          <div class="erro" id="msgErro"></div>
-          <div class="sucesso" id="msgSucesso">Cadastro confirmado. Redirecionando...</div>
-        </form>
-
-        <p class="legal">Ao cadastrar você concorda em receber comunicações educacionais sobre pair trading e cointegração da Gamma Quant. Pode sair quando quiser, com 1 clique, no fim de qualquer email.</p>
-      </div>
-
     </div>
   </div>
 </header>
+
+<!-- ===== FORM (2ª dobra: captura centrada) ===== -->
+<section id="form" class="form-section">
+  <div class="container-form">
+    <p class="kicker">100% gratuito · sem cartão</p>
+    <h2 class="form-title">Receba o e-book agora</h2>
+
+    <div class="form-box">
+      <p class="small">Preencha abaixo. O PDF chega no seu email em segundos.</p>
+
+      <!--
+        INTEGRAÇÃO DO FORMULÁRIO
+        Troque {{FORM_ENDPOINT}} pela URL de POST do seu CRM (FullStacky, GoHighLevel,
+        Brevo, RD Station, etc). Enquanto estiver com {{}}, o form simula sucesso no preview.
+      -->
+      <form id="formCaptura" method="POST" action="{{FORM_ENDPOINT}}" novalidate>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required autocomplete="given-name" placeholder="Como prefere ser chamado">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required autocomplete="email" placeholder="seu@email.com">
+
+        <label for="whatsapp">WhatsApp</label>
+        <input type="tel" id="whatsapp" name="whatsapp" required autocomplete="tel" placeholder="(11) 99999-9999" inputmode="numeric">
+        <p class="field-hint">Enviamos o PDF por aqui também. Zero spam — só análises gratuitas.</p>
+
+        <input type="hidden" name="origem" value="lp-coleira-toro">
+        <input type="hidden" name="utm_source" value="">
+        <input type="hidden" name="utm_medium" value="">
+        <input type="hidden" name="utm_campaign" value="">
+        <input type="hidden" name="utm_content" value="">
+        <input type="hidden" name="utm_term" value="">
+
+        <button type="submit" id="btnEnviar">Quero o e-book grátis</button>
+
+        <div class="erro" id="msgErro"></div>
+        <div class="sucesso" id="msgSucesso">Cadastro confirmado. Redirecionando...</div>
+      </form>
+
+      <p class="legal">Ao cadastrar você concorda em receber comunicações educacionais sobre pair trading e cointegração da Gamma Quant. Pode sair quando quiser, com 1 clique, no fim de qualquer email.</p>
+    </div>
+  </div>
+</section>
 
 <!-- ===== STATS STRIP ===== -->
 <section class="stats">
