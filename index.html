@@ -189,6 +189,12 @@ fbq('track', 'PageView');
     color: var(--cinza);
     margin-bottom: 18px;
   }
+  .field-hint {
+    font-size: 11px;
+    color: var(--cinza);
+    margin-top: 4px;
+    margin-bottom: 14px;
+  }
   form label {
     display: block;
     font-size: 11px;
@@ -462,6 +468,10 @@ fbq('track', 'PageView');
           <label for="email">Email</label>
           <input type="email" id="email" name="email" required autocomplete="email" placeholder="seu@email.com">
 
+          <label for="whatsapp">WhatsApp</label>
+          <input type="tel" id="whatsapp" name="whatsapp" required autocomplete="tel" placeholder="(11) 99999-9999" inputmode="numeric">
+          <p class="field-hint">Enviamos o PDF por aqui também. Zero spam — só análises gratuitas.</p>
+
           <input type="hidden" name="origem" value="lp-coleira-toro">
           <input type="hidden" name="utm_source" value="">
           <input type="hidden" name="utm_medium" value="">
@@ -660,7 +670,7 @@ fbq('track', 'PageView');
 
       <div class="faq-item">
         <button class="faq-q">Quanto custa?<span class="plus">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">Nada. O e-book é 100% gratuito. Você só precisa informar nome e email para receber o PDF imediatamente. Sem WhatsApp, sem cartão.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Nada. O e-book é 100% gratuito. Você só precisa informar nome, email e WhatsApp para receber o PDF e as comunicações educacionais da Gamma Quant.</div></div>
       </div>
 
       <div class="faq-item">
@@ -759,6 +769,18 @@ document.querySelectorAll('.faq-q').forEach(function(btn) {
     if (el && params.get(k)) el.value = params.get(k);
   });
 
+  /* Máscara WhatsApp BR */
+  var inputWpp = document.getElementById('whatsapp');
+  function maskWhatsapp(v) {
+    v = v.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 10) return '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+    if (v.length > 6) return '(' + v.slice(0,2) + ') ' + v.slice(2,6) + '-' + v.slice(6);
+    if (v.length > 2) return '(' + v.slice(0,2) + ') ' + v.slice(2);
+    if (v.length > 0) return '(' + v;
+    return v;
+  }
+  inputWpp.addEventListener('input', function(e) { e.target.value = maskWhatsapp(e.target.value); });
+
   function showErro(msg) {
     erro.textContent = msg; erro.style.display = 'block'; sucesso.style.display = 'none';
   }
@@ -769,14 +791,17 @@ document.querySelectorAll('.faq-q').forEach(function(btn) {
 
     var nome = document.getElementById('nome').value.trim();
     var email = document.getElementById('email').value.trim();
+    var wpp = inputWpp.value.replace(/\D/g, '');
 
     if (!nome) return showErro('Coloca seu nome aí.');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showErro('Email inválido. Confere e tenta de novo.');
+    if (wpp.length < 10) return showErro('WhatsApp incompleto. Coloca com DDD.');
 
     btn.disabled = true; btn.textContent = 'Enviando...';
 
     try {
       var formData = new FormData(form);
+      formData.set('whatsapp', wpp);
       var payload = {};
       formData.forEach(function(value, key) { payload[key] = value; });
 
